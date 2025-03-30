@@ -1,0 +1,10 @@
+pymongo
+python-telegram-bot
+pyTelegramBotAPI
+certifi
+pytz
+telebot
+requests
+beautifulsoup4
+faker
+multiprocess
