@@ -1,0 +1,26 @@
+# render.yml - GitHub से Render पर डिप्लॉय करने के लिए
+
+services:
+  - name: my-web-app  # अपने ऐप का नाम दें
+    type: web         # सेवा का प्रकार (web, worker, cron, etc.)
+    env: python       # एनवायरनमेंट (Python, Node.js, Docker, etc.)
+    region: mumbai    # या "us-east", "singapore" (Render के रीजन चुनें)
+    branch: main      # GitHub ब्रांच (default: main/master)
+    
+    # Build कमांड (Python के लिए)
+    buildCommand: |
+      pip install -r requirements.txt
+      
+    # Start कमांड (Flask/Django/FastAPI के हिसाब से बदलें)
+    startCommand: |
+      chmod +x raja && python3 letest.py  # या "gunicorn app:app" (Production के लिए)
+
+    # ऑटो-डिप्लॉय सेटिंग
+    autoDeploy: yes   # GitHub पर push होते ही डिप्लॉय होगा
+
+    # एनवायरनमेंट वेरिएबल (अगर ज़रूरी हो)
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://user:pass@localhost/dbname
+      - key: DEBUG
+        value: "False"
