@@ -461,7 +461,7 @@ def execute_attack(message, target, port, time_duration, user_id, group_id):
     """Execute the actual attack command"""
     try:
         # Simulate attack (replace with actual command)
-        subprocess.run(f"./raja {target} {port} {time_duration} 512 512", shell=True, check=True)
+        subprocess.run(f"./raja {target} {port} {time_duration}", shell=True, check=True)
         
         # Update user data
         user_data[user_id]['attacks'] += 1
